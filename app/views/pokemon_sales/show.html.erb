@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @pokemon_sale %>
+
+<div>
+  <%= link_to "Edit this pokemon sale", edit_pokemon_sale_path(@pokemon_sale) %> |
+  <%= link_to "Back to pokemon sales", pokemon_sales_path %>
+
+  <%= button_to "Destroy this pokemon sale", @pokemon_sale, method: :delete %>
+</div>

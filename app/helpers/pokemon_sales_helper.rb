@@ -1,0 +1,2 @@
+module PokemonSalesHelper
+end

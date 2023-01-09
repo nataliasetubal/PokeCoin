@@ -1,0 +1,2 @@
+class PokemonSale < ApplicationRecord
+end

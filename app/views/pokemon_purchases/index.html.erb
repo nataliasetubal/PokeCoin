@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Pokemon purchases</h1>
+
+<div id="pokemon_purchases">
+  <% @pokemon_purchases.each do |pokemon_purchase| %>
+    <%= render pokemon_purchase %>
+    <p>
+      <%= link_to "Show this pokemon purchase", pokemon_purchase %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New pokemon purchase", new_pokemon_purchase_path %>
