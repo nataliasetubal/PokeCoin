@@ -1,4 +1,4 @@
-class PokemonPurchasesController < ApplicationController
+class PokemonPurchasesController < AuthenticatedController
   before_action :set_pokemon_purchase, only: %i[ show edit update destroy ]
 
   # GET /pokemon_purchases or /pokemon_purchases.json

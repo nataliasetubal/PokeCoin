@@ -1,4 +1,4 @@
-class WalletsController < ApplicationController
+class WalletsController < AuthenticatedController
   before_action :set_wallet, only: %i[ show edit update destroy ]
 
   # GET /wallets or /wallets.json
