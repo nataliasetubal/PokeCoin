@@ -1,9 +1,14 @@
-<h1>New user</h1>
+<div class="container">
+  <main>
+    <h1>PokeCoin</h1>
 
-<%= render "form", user: @user %>
+    <h3>SignUp</h3>
+    <div>
+      <%= render "form", user: @user %>
+    </div>
 
-<br>
-
-<div>
-  <%= link_to "Back to users", users_path %>
+    <div>
+      <%= link_to "Back to users", root_path %>
+    </div>
+  </main>
 </div>

@@ -1,6 +1,4 @@
 class AuthenticatedController < ApplicationController
-  include Authentication
-
   before_action :authenticate_user
 
   def authenticate_user

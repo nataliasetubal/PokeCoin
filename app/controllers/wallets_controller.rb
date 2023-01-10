@@ -3,35 +3,11 @@ class WalletsController < AuthenticatedController
 
   # GET /wallets or /wallets.json
   def index
-    @wallets = Wallet.all
-  end
-
-  # GET /wallets/1 or /wallets/1.json
-  def show
-  end
-
-  # GET /wallets/new
-  def new
-    @wallet = Wallet.new
+    @wallet = Wallet.find_by(user_id: current_user.id)
   end
 
   # GET /wallets/1/edit
   def edit
-  end
-
-  # POST /wallets or /wallets.json
-  def create
-    @wallet = Wallet.new(wallet_params)
-
-    respond_to do |format|
-      if @wallet.save
-        format.html { redirect_to wallet_url(@wallet), notice: "Wallet was successfully created." }
-        format.json { render :show, status: :created, location: @wallet }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @wallet.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /wallets/1 or /wallets/1.json
@@ -44,16 +20,6 @@ class WalletsController < AuthenticatedController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @wallet.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /wallets/1 or /wallets/1.json
-  def destroy
-    @wallet.destroy
-
-    respond_to do |format|
-      format.html { redirect_to wallets_url, notice: "Wallet was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 

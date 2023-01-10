@@ -11,9 +11,16 @@ class User < ApplicationRecord
   validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true
   validates :password, confirmation: true
 
+  def self.login!(email:, password:)
+    user = User.find_by!(email: email)
+    raise ActiveRecord::RecordNotFound unless user.authenticate(password)
+
+    user
+  end
+
   private
 
   def create_default_wallet
-    Wallet.create(user_id: self.id)
+    Wallet.create(user_id: id)
   end
 end

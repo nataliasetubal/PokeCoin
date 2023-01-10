@@ -2,13 +2,6 @@
 
 <h1>Wallets</h1>
 
-<div id="wallets">
-  <% @wallets.each do |wallet| %>
-    <%= render wallet %>
-    <p>
-      <%= link_to "Show this wallet", wallet %>
-    </p>
-  <% end %>
+<div id="wallet">
+  <p>Valor: <%= @wallet.value %></p>
 </div>
-
-<%= link_to "New wallet", new_wallet_path %>

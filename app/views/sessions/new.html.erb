@@ -1,0 +1,24 @@
+<div class="container">
+  <main>
+    <h1>PokeCoin</h1>
+
+    <h3>Login</h3>
+    <div>
+      <%= form_with url: login_path, scope: :user do |form| %>
+        <div>
+          <%= form.label :username %>
+          <%= form.email_field :username, required: true %>
+        </div>
+        <div>
+          <%= form.label :password %>
+          <%= form.password_field :password, required: true %>
+        </div>
+        <%= form.submit "Log In" %>
+      <% end %>
+
+      <div>
+        <%= link_to "Back to users", root_path %>
+      </div>
+    </div>
+  </main>
+</div>
