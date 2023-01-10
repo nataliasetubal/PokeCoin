@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_09_234801) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_09_235337) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -18,12 +18,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_234801) do
     t.decimal "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "pokemon_id"
+    t.index ["pokemon_id"], name: "index_pokemon_purchases_on_pokemon_id"
+    t.index ["user_id"], name: "index_pokemon_purchases_on_user_id"
   end
 
   create_table "pokemon_sales", force: :cascade do |t|
     t.decimal "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "pokemon_id"
+    t.index ["pokemon_id"], name: "index_pokemon_sales_on_pokemon_id"
+    t.index ["user_id"], name: "index_pokemon_sales_on_user_id"
   end
 
   create_table "pokemons", force: :cascade do |t|
@@ -32,6 +40,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_234801) do
     t.boolean "sold"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_pokemons_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -50,4 +60,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_09_234801) do
     t.index ["user_id"], name: "index_wallets_on_user_id"
   end
 
+  add_foreign_key "pokemon_purchases", "pokemons"
+  add_foreign_key "pokemon_purchases", "users"
+  add_foreign_key "pokemon_sales", "pokemons"
+  add_foreign_key "pokemon_sales", "users"
 end
