@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   before_action :redirect_if_authenticated, only: %i[create new]
 
   def create
-    user = User.login!(username: username, password: password)
+    user = User.login!(email: email, password: password)
 
     current_user_id(user)
 
