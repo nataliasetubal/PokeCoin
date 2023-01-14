@@ -1,4 +1,4 @@
 class PokemonAcquisition < ApplicationRecord
   belongs_to :user
-  has_one :pokemon
+  belongs_to :pokemon
 end

@@ -1,6 +1,6 @@
 class Pokemon < ApplicationRecord
   belongs_to :user
-  has_one :pokemon_acquisition
+  has_one :pokemon_acquisition, ->(id) { where('pokemon_id = ?', id) }
 
   include ActionView::Helpers::NumberHelper
 
