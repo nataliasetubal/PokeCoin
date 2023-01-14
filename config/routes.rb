@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :pokemon_sales
-  resources :pokemon_purchases
+  resources :pokemon_acquisitions
   resources :pokemons
   resources :wallets
 
