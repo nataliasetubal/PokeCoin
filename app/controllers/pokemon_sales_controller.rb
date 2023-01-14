@@ -1,5 +1,5 @@
 class PokemonSalesController < AuthenticatedController
-  before_action :set_pokemon_sale, only: %i[ show edit update destroy ]
+  before_action :set_pokemon_sale, only: %i[ show ]
 
   # GET /pokemon_sales or /pokemon_sales.json
   def index
@@ -15,10 +15,6 @@ class PokemonSalesController < AuthenticatedController
     @pokemon_sale = PokemonSale.new
   end
 
-  # GET /pokemon_sales/1/edit
-  def edit
-  end
-
   # POST /pokemon_sales or /pokemon_sales.json
   def create
     @pokemon_sale = PokemonSale.new(pokemon_sale_params)
@@ -31,29 +27,6 @@ class PokemonSalesController < AuthenticatedController
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @pokemon_sale.errors, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # PATCH/PUT /pokemon_sales/1 or /pokemon_sales/1.json
-  def update
-    respond_to do |format|
-      if @pokemon_sale.update(pokemon_sale_params)
-        format.html { redirect_to pokemon_sale_url(@pokemon_sale), notice: "Pokemon sale was successfully updated." }
-        format.json { render :show, status: :ok, location: @pokemon_sale }
-      else
-        format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @pokemon_sale.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /pokemon_sales/1 or /pokemon_sales/1.json
-  def destroy
-    @pokemon_sale.destroy
-
-    respond_to do |format|
-      format.html { redirect_to pokemon_sales_url, notice: "Pokemon sale was successfully destroyed." }
-      format.json { head :no_content }
     end
   end
 
