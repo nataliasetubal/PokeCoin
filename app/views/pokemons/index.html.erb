@@ -1,8 +1,10 @@
+<%= render partial: "shared/header"%>
+
 <p style="color: green"><%= notice %></p>
 
-<h1>Pokemons</h1>
+<h1 class="text-center">Pokemons</h1>
 
-<div id="pokemons">
+<div class="container" id="pokemons">
   <% @pokemons.each do |pokemon| %>
     <%= render pokemon %>
     <p>
@@ -11,4 +13,4 @@
   <% end %>
 </div>
 
-<%= link_to "New pokemon", new_pokemon_path %>
+<%= link_to 'Aquisições de pokemons', pokemon_acquisitions_path%>
