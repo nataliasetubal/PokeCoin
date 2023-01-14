@@ -2,7 +2,7 @@ class PokemonAcquisitionsController < AuthenticatedController
   before_action :set_pokemon_acquisition, only: %i[show]
 
   def index
-    @pokemon_acquisition = PokemonAcquisition.all
+    @pokemon_acquisitions = PokemonAcquisition.all
   end
 
   def show; end
