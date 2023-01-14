@@ -1,16 +1,5 @@
 <div class="container">
   <%= form_with(model: @pokemon_acquisition) do |form| %>
-    <% if @pokemon_acquisition.errors.any? %>
-      <div style="color: red">
-        <h2><%= pluralize(@pokemon_acquisition.errors.count, "error") %> prohibited this pokemon_acquisition from being saved:</h2>
-
-        <ul>
-          <% @pokemon_acquisition.errors.each do |error| %>
-            <li><%= error.full_message %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
 
     <div>
       <%= form.label :name, style: "display: block" %>
@@ -21,4 +10,5 @@
       <%= form.submit %>
     </div>
   <% end %>
+
 </div>

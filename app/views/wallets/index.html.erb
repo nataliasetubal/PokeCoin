@@ -1,20 +1,22 @@
 <%= render partial: "wallets/header"%>
 
-<p style="color: green"><%= notice %></p>
-
 <h1 class="text-center">Wallet</h1>
 
-<div class="container d-flex justify-content-between text-center" id="wallet">
-  <div class="flex-column">
-    <p>Valor em satochis:</p>
-    <%= @wallet.value %>
+<div class="d-flex" style="width: 100vw; height: 50vh">
+
+  <div class="container d-flex justify-content-between text-center" id="wallet">
+    <div class="flex-column">
+      <p>Valor em satochis:</p>
+      <%= @wallet.value %>
+    </div>
+    <div class="flex-column">
+      <p>Número de pokemons:</p>
+      <%= number_of_pokemons %>
+    </div>
+    <div class="flex-column">
+      <p>Valor em dólares:</p>
+      <%= wallet_value_in_usd %>
+    </div>
   </div>
-  <div class="flex-column">
-    <p>Número de pokemons:</p>
-    <%= number_of_pokemons %>
-   </div>
-  <div class="flex-column">
-    <p>Valor em dólares:</p>
-     <%= wallet_value_in_usd %>
-  </div>
+
 </div>
