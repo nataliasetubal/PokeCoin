@@ -4,9 +4,9 @@ class SessionsController < ApplicationController
   def create
     user = User.login!(email: email, password: password)
 
-    current_user_id(user)
+    login(user)
 
-    redirect_to agenda_index_path
+    redirect_to wallets_path
   rescue ActiveRecord::RecordNotFound => e
     flash.now[:alert] = 'Usuário não encontrado'
     render :new, status: :unprocessable_entity
@@ -21,8 +21,8 @@ class SessionsController < ApplicationController
 
   private
 
-  def username
-    params.require(:user).require(:username)
+  def email
+    params.require(:user).require(:email)
   end
 
   def password

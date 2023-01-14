@@ -9,7 +9,7 @@ class User < ApplicationRecord
   after_create :create_default_wallet
 
   validates :email, uniqueness: true, format: { with: URI::MailTo::EMAIL_REGEXP }, presence: true
-  validates :password, confirmation: true
+  validates :password, presence: true
 
   def self.login!(email:, password:)
     user = User.find_by!(email: email)

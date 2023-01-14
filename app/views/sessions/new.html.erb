@@ -6,8 +6,8 @@
     <div>
       <%= form_with url: login_path, scope: :user do |form| %>
         <div>
-          <%= form.label :username %>
-          <%= form.email_field :username, required: true %>
+          <%= form.label :email %>
+          <%= form.email_field :email, required: true %>
         </div>
         <div>
           <%= form.label :password %>
