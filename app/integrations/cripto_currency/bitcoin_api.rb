@@ -16,7 +16,7 @@ module CriptoCurrency
       @api_key = api_key
     end
 
-    def get_currency
+    def currency
       response = @api.get(@url, { 'X-CoinAPI-Key' => @api_key })
       JSON.parse(response)
     end
