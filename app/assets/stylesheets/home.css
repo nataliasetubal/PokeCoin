@@ -13,3 +13,7 @@ main{
   justify-content: center;
   flex-direction: column;
 }
+
+.mt-16{
+  margin-top: 16px;
+}

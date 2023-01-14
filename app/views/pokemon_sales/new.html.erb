@@ -1,9 +1,13 @@
-<h1 class="text-center">New pokemon sale</h1>
+<%= render partial: "shared/header"%>
 
-<%= render "form", pokemon_sale: @pokemon_sale %>
+<div class="container">
+  <h1 class="text-center mt-16">New pokemon sale</h1>
 
-<br>
+  <%= render "form", pokemon_sale: @pokemon_sale %>
 
-<div>
-  <%= link_to "Back to pokemon sales", pokemon_sales_path %>
+  <br>
+
+  <div>
+    <%= link_to "Back to pokemon sales", pokemon_sales_path %>
+  </div>
 </div>

@@ -1,10 +1,15 @@
-<p style="color: green"><%= notice %></p>
+<%= render partial: "shared/header"%>
 
-<%= render @pokemon %>
+<div class="container">
+  <p style="color: green"><%= notice %></p>
 
-<div>
-  <%= link_to "Edit this pokemon", edit_pokemon_path(@pokemon) %> |
-  <%= link_to "Back to pokemons", pokemons_path %>
+  <%= render @pokemon %>
 
-  <%= button_to "Destroy this pokemon", @pokemon, method: :delete %>
+  <div>
+    <%= link_to "Edit this pokemon", edit_pokemon_path(@pokemon) %> |
+    <%= link_to "Back to pokemons", pokemons_path %>
+
+    <%= button_to "Destroy this pokemon", @pokemon, method: :delete %>
+  </div>
+
 </div>
