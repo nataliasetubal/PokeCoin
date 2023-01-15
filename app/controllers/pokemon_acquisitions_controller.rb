@@ -14,7 +14,7 @@ class PokemonAcquisitionsController < AuthenticatedController
     redirect_to pokemon_acquisitions_path, notice: 'Nova aquisição de pokémon criada com sucesso.'
   rescue PokemonApiException => e
     redirect_to pokemon_acquisitions_path, notice: e.message
-  rescue StandardError
+  rescue StandardError => e
     redirect_to pokemon_acquisitions_path, notice: "Ocorreu um erro durante a criação da aquisição do novo pokémon."
   end
 
