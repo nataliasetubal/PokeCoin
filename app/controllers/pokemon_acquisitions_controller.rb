@@ -1,6 +1,6 @@
 class PokemonAcquisitionsController < AuthenticatedController
   def index
-    @pokemon_acquisitions = PokemonAcquisition.all
+    @pokemon_acquisitions = PokemonAcquisition.all.reverse_order
   end
 
   def new
@@ -9,7 +9,7 @@ class PokemonAcquisitionsController < AuthenticatedController
 
   def create
     service = RegisterNewPokemonAcquisitionService.build
-    @pokemon_acquisition = service.execute(pokemon_name: pokemon_name, user_id: current_user.id)
+    @pokemon_acquisition = service.execute(pokemon_name: pokemon_name.downcase, user_id: current_user.id)
 
     redirect_to pokemon_acquisitions_path, notice: 'Nova aquisição de pokémon criada com sucesso.'
   rescue PokemonApiException => e
