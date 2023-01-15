@@ -14,9 +14,13 @@ class RegisterNewPokemonAcquisitionService
   end
 
   def execute(pokemon_name:, user_id:)
-    result = @api.get_pokemon_by_name(name: pokemon_name)
-    pokemon = save_pokemon(name: pokemon_name, base_experience: result['base_experience'], user_id: user_id)
-    register_pokemon_acquisition(pokemon: pokemon, user_id: user_id)
+    pokemon_acquisition = @pokemon_acquisition_repository.transaction do
+      result = @api.get_pokemon_by_name(name: pokemon_name)
+      pokemon = save_pokemon(name: pokemon_name, base_experience: result['base_experience'], user_id: user_id)
+      register_pokemon_acquisition(pokemon: pokemon, user_id: user_id)
+    end
+
+    pokemon_acquisition
   end
 
   private
