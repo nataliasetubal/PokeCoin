@@ -6,8 +6,8 @@
 
   <div class="container d-flex justify-content-between text-center" id="wallet">
     <div class="flex-column">
-      <p>Valor em satochis:</p>
-      <%= @wallet.value %>
+      <p>Valor em satoshis:</p>
+      <%= wallet_value_with_precision(@wallet.value) %>
     </div>
     <div class="flex-column">
       <p>Número de pokemons:</p>

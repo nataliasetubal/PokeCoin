@@ -1,14 +1,24 @@
 <%= render partial: "shared/header"%>
 
-<h1 class="text-center">Pokemons</h1>
+<div class="container">
+  <h1 class="text-center">Pokemons</h1>
 
-<div class="container" id="pokemons">
-  <% @pokemons.each do |pokemon| %>
-    <%= render pokemon %>
-    <p>
-      <%= link_to "Show this pokemon", pokemon %>
-    </p>
-  <% end %>
+  <div  id="pokemons" class="container p-1">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Base de experiência</th>
+          <th>Vendido</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @pokemons.each do |pokemon| %>
+          <%= render pokemon %>
+        <% end %>
+      </tbody>
+    </table>
+    <%= link_to "Adicionar novo pokémon", new_pokemon_acquisition_path %>
+  </div>
 </div>
-
-<%= link_to 'Aquisições de pokemons', pokemon_acquisitions_path%>
