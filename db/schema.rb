@@ -52,7 +52,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_14_135541) do
   end
 
   create_table "wallets", force: :cascade do |t|
-    t.decimal "value", precision: 5, scale: 2, default: "0.0"
+    t.decimal "value", default: "0.0"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
