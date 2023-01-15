@@ -11,7 +11,7 @@
         <%= link_to 'Vendas de pokemons', pokemon_sales_path%>
       </li>
       <li class="nav-item">
-        <%= link_to 'Logout', logout_path%>
+        <%= link_to "Logout", logout_path, data: { "turbo-method": :delete } %>
       </li>
     </ul>
   </div>
