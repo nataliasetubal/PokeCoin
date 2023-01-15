@@ -1,10 +1,11 @@
 <%= form_with(model: @pokemon_acquisition) do |form| %>
-<div class="d-flex p-5">
-  <div>
+<div class="d-flex p-5 justify-content-center">
+  <div class="d-flex flex-column">
     <%= form.label :name, "Insira o nome do Pokémon desejado:" %>
     <%= form.text_field :name, style:"margin: 0px 15px;" %>
+    <br>
+    <%= form.submit "Adicionar" %>
   </div>
 
-  <%= form.submit "Adicionar" %>
 </div>
 <% end %>
