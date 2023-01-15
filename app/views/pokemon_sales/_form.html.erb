@@ -1,16 +1,4 @@
 <%= form_with(model: pokemon_sale) do |form| %>
-  <% if pokemon_sale.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(pokemon_sale.errors.count, "error") %> prohibited this pokemon_sale from being saved:</h2>
-
-      <ul>
-        <% pokemon_sale.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div>
     <%= form.label :value, style: "display: block" %>
     <%= form.text_field :value %>
