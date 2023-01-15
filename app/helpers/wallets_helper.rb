@@ -11,6 +11,6 @@ module WalletsHelper
   end
 
   def number_of_pokemons
-    Pokemon.where(user_id: current_user.id).count
+    Pokemon.where(user_id: current_user.id, sold: false).count
   end
 end
