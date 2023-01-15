@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_14_135541) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_15_034758) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -24,7 +24,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_14_135541) do
   end
 
   create_table "pokemon_sales", force: :cascade do |t|
-    t.decimal "value", precision: 5, scale: 2
+    t.decimal "value", default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"

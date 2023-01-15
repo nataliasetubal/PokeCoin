@@ -1,5 +1,6 @@
 class PokemonSale < ApplicationRecord
   belongs_to :user
+  belongs_to :pokemon
 
   after_save :update_wallet_value
 

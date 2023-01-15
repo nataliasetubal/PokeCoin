@@ -1,7 +1,9 @@
 <div id="<%= dom_id pokemon_sale %>">
-  <p>
-    <strong>Value:</strong>
-    <%= pokemon_sale.value %>
-  </p>
-
+    <% pokemon = pokemon_sale.pokemon %>
+    <tr>
+      <td> <%= pokemon.name %> </td>
+      <td> <%= pokemon.base_experience %></td>
+      <td> <%= value_with_precision(pokemon_sale.value) %> </td>
+      <td> <%= pokemon_sale.created_at.strftime("%d-%m-%Y") %></td>
+    </tr>
 </div>

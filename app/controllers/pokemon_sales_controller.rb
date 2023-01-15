@@ -1,28 +1,26 @@
 class PokemonSalesController < AuthenticatedController
-  before_action :set_pokemon_sale, only: %i[ show ]
+  before_action :set_pokemon_sale, only: %i[show]
 
   # GET /pokemon_sales or /pokemon_sales.json
   def index
-    @pokemon_sales = PokemonSale.all
-  end
-
-  # GET /pokemon_sales/new
-  def new
-    @pokemon_sale = PokemonSale.new
+    @pokemon_sales = PokemonSale.all.reverse_order
   end
 
   # POST /pokemon_sales or /pokemon_sales.json
   def create
-    @pokemon_sale = PokemonSale.create(pokemon_sale_params)
+    service = RegisterNewPokemonSaleService.build
+    @pokemon_sale = service.execute(pokemon_id: pokemon_id, user_id: current_user.id)
 
-    redirect_to pokemon_sales_path, notice: 'Nova aquisição de pokémon criada com sucesso.'
-  rescue StandardError
-    redirect_to pokemon_sales_path, notice: "Ocorreu um erro durante a criação da venda."
+    redirect_to pokemon_sales_path, notice: 'Pokémon vendido com sucesso.'
+  rescue StandardError => e
+    redirect_to pokemon_sales_path, notice: 'Ocorreu um erro durante a criação da venda.'
   end
 
   private
-    # Only allow a list of trusted parameters through.
-    def pokemon_sale_params
-      params.require(:pokemon_sale).permit(:value)
-    end
+
+  # Only allow a list of trusted parameters through.
+
+  def pokemon_id
+    params[:pokemon_id]
+  end
 end

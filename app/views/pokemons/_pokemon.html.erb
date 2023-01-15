@@ -3,6 +3,14 @@
     <td> <%= pokemon.name %> </td>
     <td> <%= pokemon.base_experience %></td>
     <td> <%= pokemon.sold ? "Sim" : "Não" %></td>
+    <% if !pokemon.sold %>
+      <td>
+        <%= button_to 'Vender', {:controller => "pokemon_sales", :action => "create", :pokemon_id => pokemon.id}, {:method=>:post}  %>
+      </td>
+
+    <% else %>
+      <td></td>
+    <% end %>
   </tr>
 </div>
 
