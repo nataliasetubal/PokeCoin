@@ -1,24 +1,39 @@
-<div class="container">
-  <main>
-    <h1 class="text-center">PokeCoin</h1>
+<div>
+  <header >
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+        </ul>
 
-    <h3>Login</h3>
-    <div>
-      <%= form_with url: login_path, scope: :user do |form| %>
-        <div>
-          <%= form.label :email %>
-          <%= form.email_field :email, required: true %>
-        </div>
-        <div>
-          <%= form.label :password %>
-          <%= form.password_field :password, required: true %>
-        </div>
-        <%= form.submit "Log In" %>
-      <% end %>
-
-      <div>
-        <%= link_to "Voltar", root_path %>
+        <ul class="nav navbar-nav navbar-right">
+          <li> <%= link_to "Voltar", root_path %> </li>
+        </ul>
       </div>
-    </div>
-  </main>
+    </nav>
+  </header>
+
+  <div class="container">
+    <main>
+      <h1>PokeCoin</h1>
+
+      <h3>Login</h3>
+      <div>
+        <%= form_with url: login_path, scope: :user do |form| %>
+        <div>
+          <%= form.label :email, style: "display: block" %>
+          <%= form.text_field :email %>
+        </div>
+
+        <div>
+          <%= form.label :password, "Password", style: "display: block" %>
+          <%= form.text_field :password %>
+        </div>
+
+        <div>
+          <%= form.submit "Login" %>
+        </div>
+        <% end %>
+      </div>
+    </main>
+  </div>
 </div>

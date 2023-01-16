@@ -1,14 +1,25 @@
-<div class="container">
-  <main>
-    <h1>PokeCoin</h1>
+<div>
+  <header >
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <ul class="nav navbar-nav">
+        </ul>
 
-    <h3>SignUp</h3>
-    <div>
-      <%= render "form", user: @user %>
-    </div>
+        <ul class="nav navbar-nav navbar-right">
+          <li> <%= link_to "Voltar", root_path %> </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
 
-    <div>
-      <%= link_to "Voltar", root_path %>
-    </div>
-  </main>
+  <div class="container">
+    <main>
+      <h1>PokeCoin</h1>
+
+      <h3>SignUp</h3>
+      <div>
+        <%= render "form", user: @user %>
+      </div>
+    </main>
+  </div>
 </div>
