@@ -18,8 +18,6 @@ class PokemonSalesController < AuthenticatedController
 
   private
 
-  # Only allow a list of trusted parameters through.
-
   def pokemon_id
     params[:pokemon_id]
   end
