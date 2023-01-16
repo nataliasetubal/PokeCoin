@@ -12,6 +12,8 @@ class PokemonSalesController < AuthenticatedController
     @pokemon_sale = service.execute(pokemon_id: pokemon_id, user_id: current_user.id)
 
     redirect_to pokemon_sales_path, notice: 'Pokémon vendido com sucesso.'
+  rescue PokemonAlreadySold => e
+    redirect_to pokemon_sales_path, notice: e.message
   rescue StandardError => e
     redirect_to pokemon_sales_path, notice: 'Ocorreu um erro durante a criação da venda.'
   end

@@ -3,7 +3,7 @@ class Pokemon < ApplicationRecord
   has_one :pokemon_acquisition, ->(id) { where('pokemon_id = ?', id) }
 
   def sell!
-    raise_pokemon_already_sold_error if sold
+    raise_pokemon_already_sold_error(self) if sold
     self.sold = true
     save
   end
@@ -11,6 +11,6 @@ class Pokemon < ApplicationRecord
   private
 
   def raise_pokemon_already_sold_error(pokemon)
-    PokemonAlreadySoldError.new(pokemon)
+    raise PokemonAlreadySold.new(pokemon: pokemon)
   end
 end
